@@ -1,10 +1,19 @@
 'use client';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 function ServiceSection() {
   const [activeService, setActiveService] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   const services = [
     {
@@ -25,7 +34,7 @@ function ServiceSection() {
       route: "/re",
       benefits: ["Recreation of obsolete parts", "Enhanced product understanding", "Rapid prototyping"],
       applications: ["Legacy Equipment", "Discontinued Parts", "Performance Optimization"],
-      image: "/reverse-engineering.png"
+      image: "/Web Pics/Reverse_Engineering.jpg"
     },
     {
       id: 3,
@@ -45,7 +54,7 @@ function ServiceSection() {
       route: "/threed",
       benefits: ["High precision measurements", "Comprehensive digital models", "Quality control applications"],
       applications: ["Complex Part Design", "Quality Inspection", "Reverse Engineering"],
-      image: "/3d-model.png"
+      image: "/Web Pics/3D scan-1.jpg"
     },
     {
       id: 5,
@@ -114,15 +123,15 @@ function ServiceSection() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-gray-50 via-white to-blue-50">
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white -z-10 animate-gradient"></div>
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -z-10 animate-pulse-slow delay-1000"></div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-5 -z-10"></div>
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -z-10 animate-pulse-slow"></div>
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl -z-10 animate-pulse-slow delay-1000"></div>
       
       {/* Animated Industrial Graphics */}
       <div className="absolute top-20 right-10 opacity-10 hidden lg:block animate-float">
-        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="150" height="150" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 6V4M12 6V8M12 6H8M16 6H20M4 12V14M4 12V10M4 12H2M4 12H6M19 18L17 14.5M19 18L21 14.5M19 18H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           <path d="M9 18H15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
           <path d="M10 14.5V18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -130,213 +139,151 @@ function ServiceSection() {
           <path d="M12 14.5V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
         </svg>
       </div>
+      
+      <div className="absolute bottom-20 left-10 opacity-10 hidden lg:block animate-float delay-500">
+        <svg width="150" height="150" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 9h3M15 12h3M15 15h3M4 9h8M4 12h8M4 15h8M17 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
 
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 relative">
-          <span className="inline-block py-1 px-3 text-sm font-medium text-primary bg-primary/10 rounded-full mb-3 animate-fade-in">
+        <div className={`text-center mb-20 relative transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className="inline-block py-1.5 px-6 text-sm font-medium text-blue-600 bg-blue-100 rounded-full mb-5">
             OUR EXPERTISE
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 animate-slide-up">
-            Engineering Services
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <span className="relative inline-block">
+              Engineering Solutions
+              <div className="absolute -bottom-3 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full"></div>
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-up delay-200">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We provide a comprehensive range of specialized engineering solutions
             tailored to meet your industrial challenges and optimize performance.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 z-20 relative">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div 
               key={service.id}
-              className={`group cursor-pointer rounded-2xl transition-all duration-500 overflow-hidden ${
-                activeService === service.id 
-                  ? "ring-2 ring-primary shadow-lg transform scale-[1.02]" 
-                  : "bg-white shadow-sm hover:shadow-xl border border-gray-100"
+              className={`group relative rounded-xl overflow-hidden transition-all duration-500 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
               }`}
+              style={{ 
+                transitionDelay: `${index * 100}ms`,
+                boxShadow: activeService === service.id ? '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)' : '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+              }}
               onClick={() => handleServiceClick(service.id)}
             >
               {/* Service Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-contain transition-transform duration-500 group-hover:scale-110"
-                  unoptimized
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent transition-opacity duration-500"></div>
+                
+                {/* Title overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white z-10">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <div className="w-10 h-10 flex-shrink-0 rounded-full bg-white/15 backdrop-blur-sm p-2 flex items-center justify-center">
+                      <Image
+                        src={service.icon}
+                        alt=""
+                        width={24}
+                        height={24}
+                        className="object-contain"
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold group-hover:text-blue-300 transition-colors">
+                      {service.title}
+                    </h3>
+                  </div>
+                </div>
               </div>
 
-              <div className="p-8">
-                <div className="flex items-start mb-6">
-                  <div className="w-12 h-12 relative mr-4 flex-shrink-0">
-                    <Image
-                      src={service.icon}
-                      alt={service.title}
-                      width={48}
-                      height={48}
-                      className="object-contain transition-transform duration-300 group-hover:scale-110"
-                      unoptimized
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                </div>
-                
-                <p className="text-gray-600 mb-6 line-clamp-2">
+              <div className="p-6 bg-white border border-gray-100">                
+                <p className="text-gray-600 mb-4 line-clamp-2">
                   {service.description}
                 </p>
                 
-                {activeService === service.id && (
-                  <div className="mt-4 space-y-6 animate-fadeIn">
+                {activeService === service.id ? (
+                  <div className="mt-6 space-y-6 animate-fadeIn">
                     <div>
-                      <h4 className="text-sm uppercase tracking-wider font-semibold text-primary mb-2">Key Benefits</h4>
+                      <h4 className="text-sm uppercase tracking-wider font-semibold text-blue-600 mb-3">Key Benefits</h4>
                       <ul className="space-y-2">
                         {service.benefits.map((benefit, idx) => (
-                          <li key={idx} className="flex items-center text-gray-700">
-                            <svg className="w-4 h-4 mr-2 text-primary" viewBox="0 0 24 24" fill="none">
-                              <path d="M5 13L9 17L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <li key={idx} className="flex items-start text-gray-700">
+                            <svg className="w-5 h-5 mr-2 text-blue-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
-                            {benefit}
+                            <span>{benefit}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     
                     <div>
-                      <h4 className="text-sm uppercase tracking-wider font-semibold text-primary mb-2">Applications</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {service.applications.map((app, idx) => (
-                          <span key={idx} className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">
-                            {app}
-                          </span>
+                      <h4 className="text-sm uppercase tracking-wider font-semibold text-blue-600 mb-3">Common Applications</h4>
+                      <ul className="space-y-2">
+                        {service.applications.map((application, idx) => (
+                          <li key={idx} className="flex items-start text-gray-700">
+                            <svg className="w-5 h-5 mr-2 text-blue-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M12 16V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M12 8H12.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                            <span>{application}</span>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
+                    
+                    <Link href={service.route} 
+                      className="mt-6 inline-flex items-center justify-center w-full py-3 px-4 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium text-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                    >
+                      Learn More
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </Link>
                   </div>
-                )}
-                
-                <div className="mt-6 flex justify-between items-center">
-                  <Link
-                    href={service.route}
-                    className="inline-flex items-center text-primary font-medium group-hover:translate-x-1 transition-transform"
-                    onClick={(e) => e.stopPropagation()}
+                ) : (
+                  <Link href={service.route} 
+                    className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium mt-2 group-hover:translate-x-1 transition-transform duration-300"
                   >
                     Learn More
-                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M13.75 6.75L19.25 12L13.75 17.25"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="M19 12H4.75"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                     </svg>
                   </Link>
-                  
-                  <button 
-                    className="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-primary rounded-full hover:bg-gray-100 transition-colors"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleServiceClick(service.id);
-                    }}
-                  >
-                    <svg 
-                      width="20" 
-                      height="20" 
-                      viewBox="0 0 24 24" 
-                      fill="none"
-                      className={`transform transition-transform duration-300 ${activeService === service.id ? 'rotate-180' : ''}`}
-                    >
-                      <path 
-                        d="M6 9L12 15L18 9" 
-                        stroke="currentColor" 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                </div>
+                )}
               </div>
+              
+              {/* Edge Glow Effect on active */}
+              {activeService === service.id && (
+                <div className="absolute inset-0 border-2 border-blue-500 rounded-xl pointer-events-none"></div>
+              )}
             </div>
           ))}
         </div>
         
-        <div className="mt-20 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute right-0 bottom-0 opacity-10 transform translate-x-1/4 translate-y-1/4">
-            <svg width="200" height="200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.7519 11.1679L11.5547 9.03647C10.8901 8.59343 10 9.06982 10 9.86852V14.1315C10 14.9302 10.8901 15.4066 11.5547 14.9635L14.7519 12.8321C15.3457 12.4362 15.3457 11.5638 14.7519 11.1679Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M21 12C21.0034 13.3199 20.6951 14.6219 20.1 15.8C19.3944 17.2118 18.3098 18.3825 16.9674 19.1929C15.6251 20.0032 14.0782 20.4238 12.5 20.4167C11.1801 20.4201 9.87812 20.1118 8.7 19.5167L3 21L4.48333 15.3C3.88825 14.1219 3.57997 12.8199 3.58333 11.5C3.57621 9.92179 3.99677 8.37488 4.80711 7.03258C5.61745 5.69028 6.78816 4.60559 8.2 3.9C9.37812 3.30491 10.6801 2.99664 12 3H12.5C14.6217 3.01156 16.6566 3.86572 18.1569 5.36604C19.6572 6.86637 20.5114 8.90131 20.5229 11.0229V11.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <div className={`flex justify-center mt-16 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Link href="/services" 
+            className="inline-flex items-center justify-center py-3 px-8 rounded-lg bg-blue-600 text-white font-medium text-base hover:bg-blue-700 transition-colors duration-300"
+          >
+            View All Services
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
-          </div>
-          
-          <div className="max-w-3xl relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Need Custom Engineering Solutions?</h3>
-            <p className="text-lg text-gray-700 mb-8">
-              Our team of experts is ready to discuss your specific requirements and develop tailored solutions 
-              for your industrial challenges. Contact us today to explore how we can enhance your operations.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="btn btn-primary">
-                Request a Consultation
-              </Link>
-              <Link href="/about" className="btn bg-white border border-gray-300 text-gray-700 hover:bg-gray-50">
-                Learn About Our Expertise
-              </Link>
-            </div>
-          </div>
+          </Link>
         </div>
       </div>
-      
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out forwards;
-        }
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient 15s ease infinite;
-        }
-        .animate-slide-up {
-          animation: slideUp 0.5s ease-out forwards;
-        }
-        @keyframes slideUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .delay-200 {
-          animation-delay: 200ms;
-        }
-        .delay-1000 {
-          animation-delay: 1000ms;
-        }
-      `}</style>
     </section>
   );
 }

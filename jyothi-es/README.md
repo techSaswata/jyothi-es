@@ -1,22 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sri Jyothi Engineering Services Website
 
-## Getting Started
+This is the official website for Sri Jyothi Engineering Services, showcasing our engineering expertise, services, and solutions.
 
-First, run the development server:
+## UI Enhancement Features
+
+The website has been enhanced with modern UI elements and visual improvements:
+
+- **Modern Design**: Clean, professional interface with consistent styling across all pages
+- **Responsive Layout**: Optimized for all devices from mobile to desktop
+- **Animation Effects**: Subtle animations and transitions for a more engaging experience
+- **Enhanced Images**: High-quality imagery showcasing our services and expertise
+- **Improved Typography**: Clean, readable text with proper hierarchy
+- **Interactive Elements**: Hover effects and interactive components for better user engagement
+- **Glassmorphism**: Modern glass-like UI elements with backdrop blur effects
+- **Gradient Accents**: Vibrant gradient accents for important UI elements
+- **Optimized Components**: Performance-optimized UI components
+
+## Pages
+
+- **Home**: Main landing page showcasing key services and company overview
+- **About**: Information about the company, our mission, and team
+- **Services**: Detailed overview of our engineering services
+- **Contact**: Contact form and information to reach us
+
+## Technology Stack
+
+- Next.js for frontend framework
+- TailwindCSS for styling
+- React for UI components
+
+## Development
+
+To run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding Images
+
+To add more images to the website, place them in the appropriate folders:
+- `/public/Web Pics/` - For general website images
+- `/public/header/` - For header/banner images
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 

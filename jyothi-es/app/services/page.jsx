@@ -1,14 +1,10 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../childcomp/header';
 import Footer from '../childcomp/footer';
 import EDMServiceCard from '../childcomp/edm-service-card';
-
-export const metadata = {
-  title: 'Jyothi Engineering Services - Precision Machining & EDM Services',
-  description: 'Specialized precision machining services including EDM, CNC, and tool manufacturing with industry-leading accuracy and quality.',
-};
 
 export default function ServicesPage() {
   const services = [
@@ -190,7 +186,7 @@ export default function ServicesPage() {
         </section>
         
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-primary to-primary-dark text-white">
+        <section className="py-16 bg-gradient-to-r from-primary to-blue-700 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4 animate-slide-up">Ready to Start Your Project?</h2>
@@ -198,7 +194,7 @@ export default function ServicesPage() {
                 Contact our team today to discuss your requirements and get a customized quote
                 for your precision machining needs.
               </p>
-              <Link href="/contact" className="btn btn-light animate-fade-in">
+              <Link href="/contact" className="btn bg-white text-primary hover:bg-gray-100 animate-fade-in">
                 Contact Us Today
               </Link>
             </div>
@@ -207,27 +203,6 @@ export default function ServicesPage() {
       </main>
       
       <Footer />
-
-      {/* CSS Animations */}
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.5s ease-out forwards;
-        }
-        .animate-slide-up {
-          animation: slideUp 0.5s ease-out forwards;
-        }
-        .delay-200 {
-          animation-delay: 200ms;
-        }
-      `}</style>
     </div>
   );
 }
