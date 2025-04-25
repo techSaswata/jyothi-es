@@ -4,39 +4,52 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const NavBar1 = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); // Define isScrolled state
+  const [isServicesOpen, setIsServicesOpen] = useState(false); // Define isServicesOpen state
+  const [isOpen, setIsOpen] = useState(false); // Define isOpen state for mobile menu
   const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 10); // Update isScrolled based on scroll position
     };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll); // Cleanup on unmount
   }, []);
 
-  // Close mobile menu when path changes
-  useEffect(() => {
-    setIsOpen(false);
-    setIsServicesOpen(false);
-  }, [pathname]);
+  const handleAboutClick = (e) => {
+    if (pathname === '/') {
+      e.preventDefault(); // Prevent navigation
+      const section = document.getElementById('about-section');
+      if (section) {
+        const offset = 80; // Adjust this value based on the navbar height
+        const top = section.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = '/about'; // Navigate to /about if not on the landing page
+    }
+  };
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
+    { href: '/about', label: 'About', onClick: handleAboutClick },
     { href: '/services', label: 'Services', hasSubmenu: true },
-    { href: '/contact', label: 'Contact' },
+    // { href: '/contact', label: 'Contact' },
   ];
 
   const serviceLinks = [
-    { href: '/repair', label: 'Repair Services', icon: '🔧' },
+    { href: '/es', label: 'Engineering Services', icon: '🛠️' },
+    { href: '/re', label: 'Reverse Engineering', icon: '🔄' },
+    { href: '/ovh', label: 'Overhauling Services', icon: '🔧' },
+    { href: '/threed', label: '3D Services', icon: '📐' },
     { href: '/spares', label: 'Spare Parts', icon: '⚙️' },
-    { href: '/energysave', label: 'Energy Solutions', icon: '⚡' },
-    { href: '/threed', label: '3D Services', icon: '🔍' },
-    { href: '/es', label: 'Engineering Services', icon: '📐' },
-    { href: '/edm', label: 'EDM Services', icon: '🛠️' },
+    { href: '/repair', label: 'Repair Services', icon: '🛠️' },
+    { href: '/energysave', label: 'Energy Solutions', icon: '💡' },
+    { href: '/edm', label: 'EDM Services', icon: '⚡' },
+    { href: '/bend', label: 'Bend Removal', icon: '🔩' },
+    { href: '/dynamic', label: 'Dynamic Balancing', icon: '⚖️' },
   ];
 
   const toggleMobileMenu = () => {
@@ -45,6 +58,19 @@ const NavBar1 = () => {
 
   const toggleServicesMenu = () => {
     setIsServicesOpen(!isServicesOpen);
+  };
+
+  let servicesMenuTimeout;
+
+  const handleMouseEnterServices = () => {
+    clearTimeout(servicesMenuTimeout);
+    setIsServicesOpen(true);
+  };
+
+  const handleMouseLeaveServices = () => {
+    servicesMenuTimeout = setTimeout(() => {
+      setIsServicesOpen(false);
+    }, 200); // Add a slight delay before closing
   };
 
   return (
@@ -74,8 +100,8 @@ const NavBar1 = () => {
                           ${pathname.startsWith('/services') || serviceLinks.some(s => pathname === s.href) 
                             ? 'font-medium text-gray-900' 
                             : ''}`}
-                        onMouseEnter={() => setIsServicesOpen(true)}
-                        onMouseLeave={() => setIsServicesOpen(false)}
+                        onMouseEnter={handleMouseEnterServices}
+                        onMouseLeave={handleMouseLeaveServices}
                       >
                         {link.label}
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,8 +111,8 @@ const NavBar1 = () => {
                       <div 
                         className={`absolute top-full right-0 mt-1 w-60 z-10 transition-all duration-200 transform origin-top-right
                           ${isServicesOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}
-                        onMouseEnter={() => setIsServicesOpen(true)}
-                        onMouseLeave={() => setIsServicesOpen(false)}
+                        onMouseEnter={handleMouseEnterServices}
+                        onMouseLeave={handleMouseLeaveServices}
                       >
                         <div className="bg-white shadow-lg border border-gray-200 py-1">
                           {serviceLinks.map((service) => (
@@ -108,6 +134,7 @@ const NavBar1 = () => {
                   ) : (
                     <Link
                       href={link.href}
+                      onClick={link.onClick || null}
                       className={`text-gray-600 hover:text-gray-900 transition-colors
                         ${pathname === link.href 
                           ? 'font-medium text-gray-900' 
@@ -124,7 +151,7 @@ const NavBar1 = () => {
               className="px-5 py-2 bg-gray-800 text-white font-medium 
                 hover:bg-gray-700 transition-colors"
             >
-              Get in Touch
+              Contact us
             </Link>
           </div>
 
