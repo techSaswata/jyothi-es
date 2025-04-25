@@ -4,7 +4,7 @@ import About from "@/app/childcomp/about";
 export default function page() {
   return (
     <>
-      <About />
+      <About id="about-section" className="about-section" />
     </>
   );
 }

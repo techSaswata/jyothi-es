@@ -1,4 +1,5 @@
-'use client';
+"use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -72,7 +73,7 @@ const timeline = [
   }
 ];
 
-export default function About() {
+const About = ({ id, className }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -84,12 +85,7 @@ export default function About() {
   }, []);
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5 -z-10"></div>
-      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-500/5 rounded-full blur-3xl -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-cyan-500/5 rounded-full blur-3xl -z-10"></div>
-      
+    <section id={id} className={`bg-white ${className || ''}`}>
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
@@ -102,62 +98,10 @@ export default function About() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
-              
-              {/* Logo overlay */}
-              <div className="absolute bottom-8 left-8 flex items-center space-x-4">
-                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm p-3 flex items-center justify-center">
-                  <Image 
-                    src="/SJES-LOGO.jpg"
-                    alt="SJES Logo"
-                    width={50}
-                    height={50}
-                    className="rounded-full"
-                  />
-                </div>
-                <div>
-                  <p className="text-white text-xl font-bold">Sri Jyothi</p>
-                  <p className="text-white/80 text-sm">ENGINEERING SERVICES</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Floating stats cards */}
-            <div className="absolute -right-16 top-1/4 bg-white rounded-xl shadow-xl p-5 w-40 transform rotate-3 hidden lg:block">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Energy</p>
-                  <p className="text-lg font-bold text-gray-900">Expertise</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="absolute -bottom-8 -left-8 bg-white rounded-xl shadow-xl p-5 w-44 transform -rotate-3 hidden lg:block">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Quality</p>
-                  <p className="text-lg font-bold text-gray-900">Guaranteed</p>
-                </div>
-              </div>
             </div>
           </div>
 
           <div className="relative">
-            <div className="absolute top-0 -left-40 w-32 h-32 bg-yellow-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-            <div className="absolute bottom-0 -right-40 w-32 h-32 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-            
             <div className="relative">
               <div className="inline-block py-1.5 px-6 text-sm font-medium text-blue-600 bg-blue-100 rounded-full mb-5">
                 ABOUT US
@@ -183,16 +127,6 @@ export default function About() {
                   Our vision is to be the most trusted specialist services group in the delivery
                   of Erection, Commissioning, Maintenance, and Manufacture & Supply of spares.
                 </p>
-              </div>
-              
-              {/* Quick stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-3xl font-bold text-blue-600">{stat.value}</div>
-                    <div className="text-gray-600 mt-1">{stat.label}</div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
@@ -296,4 +230,6 @@ export default function About() {
       </div>
     </section>
   );
-}
+};
+
+export default About;

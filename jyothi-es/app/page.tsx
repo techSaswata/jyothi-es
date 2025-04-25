@@ -13,9 +13,10 @@ export default function Home() {
       {/* <StatSection/> */}
       <ServiceSection />
       {/* <SolutionSection/> */}
-      <About />
+      <div className="bg-white">
+        <About id="about-section" className="" />
+      </div>
       <Contact />
-      <Footer />
     </>
   );
 }
