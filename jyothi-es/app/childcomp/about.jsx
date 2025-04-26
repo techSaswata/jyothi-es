@@ -85,7 +85,7 @@ const About = ({ id, className }) => {
   }, []);
 
   return (
-    <section id={id} className={`bg-white ${className || ''}`}>
+    <section id={id} className={`bg-gray-50 ${className || ''}`}>
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 items-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
@@ -98,21 +98,22 @@ const About = ({ id, className }) => {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
+              <div className="absolute inset-0 bg-black/30"></div> {/* Add overlay for better text contrast */}
             </div>
           </div>
 
           <div className="relative">
             <div className="relative">
-              <div className="inline-block py-1.5 px-6 text-sm font-medium text-blue-600 bg-blue-100 rounded-full mb-5">
+              <div className="inline-block py-1.5 px-6 text-sm font-medium text-white bg-blue-600 rounded-full mb-5">
                 ABOUT US
               </div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-8">
                 <span className="relative inline-block">
                   Sri Jyothi Engineering Services
                   <div className="absolute -bottom-3 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full"></div>
                 </span>
               </h2>
-              <div className="prose prose-lg text-gray-600 max-w-none">
+              <div className="prose prose-lg text-gray-700 max-w-none">
                 <p className="mb-6">
                   SJES is a leading India-based engineering service and manufacturing company
                   specializing in high-capacity production environments across various industries,
@@ -135,7 +136,7 @@ const About = ({ id, className }) => {
         {/* Features Section */}
         <div className={`mt-32 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="text-center mb-16 relative">
-            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
               Why Choose SJES?
             </h3>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -147,15 +148,15 @@ const About = ({ id, className }) => {
             {features.map((feature, index) => (
               <div 
                 key={index} 
-                className="group p-8 bg-white rounded-xl border border-gray-100 hover:border-blue-100 shadow-sm hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                className="group p-8 bg-white rounded-xl border border-gray-200 hover:border-blue-300 shadow-md hover:shadow-lg transition-all duration-300 relative overflow-hidden"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="absolute right-0 bottom-0 w-24 h-24 bg-blue-50 rounded-tl-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute right-0 bottom-0 w-24 h-24 bg-blue-100 rounded-tl-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center text-white mb-6 transform group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                <h4 className="text-xl font-semibold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                   {feature.title}
                 </h4>
                 <p className="text-gray-600">
@@ -169,7 +170,7 @@ const About = ({ id, className }) => {
         {/* Timeline Section */}
         <div className={`mt-32 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="text-center mb-16">
-            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
               Our Journey
             </h3>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -190,7 +191,7 @@ const About = ({ id, className }) => {
                         <span className="text-4xl font-bold text-white">{item.year}</span>
                       </div>
                       <div className="p-5 bg-white">
-                        <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
+                        <h4 className="text-xl font-semibold mb-2 text-gray-800">{item.title}</h4>
                         <p className="text-gray-600">{item.description}</p>
                       </div>
                     </div>
