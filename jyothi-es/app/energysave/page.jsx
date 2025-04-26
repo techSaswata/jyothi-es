@@ -2,46 +2,98 @@ import React from "react";
 
 export default function page() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="mb-8 md:mb-0 md:pr-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">
-              Energy Saving Consultancy Services
-            </h2>
-            <p className="text-gray-600 mb-4">
-              There are many means of improving the energy efficiency of a power
-              plant – from the replacement of a single component to complete
-              modernisation or operation and maintenance solutions. There are
-              also many aspects that affect a plant’s energy efficiency, and
-              these need to be examined before choosing the suitable improvement
-              solution. Some key factors are fuel consumption, fuel price, price
-              of electricity in the operating area and the maximum output of the
-              plant. The first thing to look at is the engine – specifically the
-              fuel system. What fuel does the plant use – oil or gas? What
-              quality is the fuel, and does it correspond to the original
-              parameters used in the construction phase of the plant? The
-              condition of the engine and the fuel injection system is also very
-              important – have they been properly maintained or left to gather
-              dirt and crust? Charge air and removal of exhaust gas, as well as
-              the condition of the boiler play a role too. The cooling system,
-              specifically the quality of the cooling water, can also impact
-              energy efficiency. Has it been purified to a sufficient extent?
-              The next aspect is the operation of the plant. Is it operated
-              according to the original parameters, or has the plant operator
-              changed the operating profile to match changed needs? Does the
-              number of engines match the customer need, and are they being run
-              at an optimal load or is the load too high or low? Regular
-              maintenance is naturally an important factor, as well. In some
-              cases, the plant operator already knows where the challenges are,
-              while in others, there are more open questions. In the latter
-              situation, a site audit conducted by energy efficiency experts
-              helps identify equipment and processes with improvement potential.
-              In all cases, technical schematics of the plant and its designed
-              operating parameters, as well as all available operational data
-              are examined to ensure that there is sufficient information for
-              selecting the best improvement solution.
-            </p>
+        <div className="mb-12">
+          <h2 className="text-4xl font-extrabold text-blue-600 mb-4 tracking-wide border-b-4 border-blue-500 pb-2">
+            Energy Saving Consultancy Services
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            There are many means of improving the energy efficiency of a power
+            plant – from the replacement of a single component to complete
+            modernisation or operation and maintenance solutions. There are also
+            many aspects that affect a plant’s energy efficiency, and these need
+            to be examined before choosing the suitable improvement solution.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          {/* Card 1 */}
+          <div className="bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow p-8">
+            <h3 className="text-2xl font-bold text-blue-600 mb-4">
+              Key Factors to Examine
+            </h3>
+            <ul className="space-y-4 text-gray-700">
+              <li>
+                <span className="font-bold text-blue-500">Fuel System:</span>{" "}
+                Assess the type and quality of fuel used and its compatibility
+                with the plant's original design.
+              </li>
+              <li>
+                <span className="font-bold text-blue-500">Engine Condition:</span>{" "}
+                Evaluate the maintenance and cleanliness of the engine and fuel
+                injection system.
+              </li>
+              <li>
+                <span className="font-bold text-blue-500">Cooling System:</span>{" "}
+                Check the quality of cooling water and its purification level.
+              </li>
+              <li>
+                <span className="font-bold text-blue-500">Boiler Condition:</span>{" "}
+                Inspect the boiler and exhaust gas removal system for
+                efficiency.
+              </li>
+            </ul>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow p-8">
+            <h3 className="text-2xl font-bold text-blue-600 mb-4">
+              Operational Aspects
+            </h3>
+            <ul className="space-y-4 text-gray-700">
+              <li>
+                <span className="font-bold text-blue-500">Operating Parameters:</span>{" "}
+                Ensure the plant operates according to its original design or
+                updated needs.
+              </li>
+              <li>
+                <span className="font-bold text-blue-500">Engine Load:</span>{" "}
+                Verify that engines are running at optimal load levels.
+              </li>
+              <li>
+                <span className="font-bold text-blue-500">Maintenance:</span>{" "}
+                Regular maintenance is critical for sustained efficiency.
+              </li>
+              <li>
+                <span className="font-bold text-blue-500">Number of Engines:</span>{" "}
+                Match the number of engines to customer needs for optimal
+                performance.
+              </li>
+            </ul>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition-shadow p-8">
+            <h3 className="text-2xl font-bold text-blue-600 mb-4">
+              Site Audit and Analysis
+            </h3>
+            <ul className="space-y-4 text-gray-700">
+              <li>
+                <span className="font-bold text-blue-500">Site Audit:</span>{" "}
+                Conduct audits to identify equipment and processes with
+                improvement potential.
+              </li>
+              <li>
+                <span className="font-bold text-blue-500">Operational Data:</span>{" "}
+                Examine operational data and technical schematics for informed
+                decision-making.
+              </li>
+              <li>
+                <span className="font-bold text-blue-500">Improvement Solutions:</span>{" "}
+                Select the best solutions based on comprehensive analysis.
+              </li>
+            </ul>
           </div>
         </div>
       </div>
