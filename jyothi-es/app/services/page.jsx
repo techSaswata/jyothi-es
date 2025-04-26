@@ -44,10 +44,10 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      
       
       <main className="flex-grow">
-        {/* Hero Section with Parallax */}
+        {/* Hero Section */}
         <section className="relative h-[60vh] overflow-hidden">
           <div className="absolute inset-0">
             <Image
@@ -58,23 +58,23 @@ export default function ServicesPage() {
               priority
               unoptimized
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-800/70 z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/95 to-blue-700/80 z-10"></div>
           </div>
           <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-slide-up">
                 Engineering Solutions<br />
-                <span className="text-primary">Precision & Excellence</span>
+                <span className="text-blue-300">Precision & Excellence</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 animate-slide-up delay-200">
+              <p className="text-xl text-gray-200 mb-8 animate-slide-up delay-200">
                 Cutting-edge machining and manufacturing services delivering 
                 industry-leading accuracy and exceptional quality since 1995.
               </p>
               <div className="flex flex-wrap justify-center gap-4 animate-fade-in">
-                <Link href="/contact" className="btn btn-primary">
+                <Link href="/contact" className="btn bg-white text-blue-700 hover:bg-gray-100">
                   Request a Quote
                 </Link>
-                <Link href="/about" className="btn btn-outline-light">
+                <Link href="/about" className="btn bg-transparent border border-white text-white hover:bg-white hover:text-blue-700">
                   Learn About Our Process
                 </Link>
               </div>
@@ -86,8 +86,8 @@ export default function ServicesPage() {
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 animate-slide-up">Our Engineering Services</h2>
-              <p className="text-gray-600 animate-slide-up delay-200">
+              <h2 className="text-3xl font-bold mb-4 animate-slide-up text-gray-800">Our Engineering Services</h2>
+              <p className="text-gray-700 animate-slide-up delay-200">
                 We provide comprehensive precision machining and tool manufacturing services
                 to meet the most demanding specifications across various industries.
               </p>
@@ -96,7 +96,7 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {services.map((service, idx) => (
                 <Link href={service.link} key={service.id} className="group">
-                  <div className="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden h-full border border-gray-200">
+                  <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden h-full border border-gray-200">
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={service.imageUrl}
@@ -105,16 +105,16 @@ export default function ServicesPage() {
                         className="object-contain transition-transform duration-500 group-hover:scale-110"
                         unoptimized
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 mb-4 line-clamp-2">
+                      <p className="text-gray-700 mb-4 line-clamp-2">
                         {service.description}
                       </p>
-                      <span className="text-primary font-medium inline-flex items-center">
+                      <span className="text-blue-700 font-medium inline-flex items-center">
                         Learn more
                         <svg className="w-4 h-4 ml-1 group-hover:ml-2 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -132,9 +132,9 @@ export default function ServicesPage() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <span className="text-primary font-semibold animate-fade-in">FEATURED SERVICE</span>
-              <h2 className="text-3xl font-bold mt-2 mb-4 animate-slide-up">Electrical Discharge Machining</h2>
-              <p className="text-gray-600 animate-slide-up delay-200">
+              <span className="text-blue-700 font-semibold animate-fade-in">FEATURED SERVICE</span>
+              <h2 className="text-3xl font-bold mt-2 mb-4 animate-slide-up text-gray-800">Electrical Discharge Machining</h2>
+              <p className="text-gray-700 animate-slide-up delay-200">
                 Our state-of-the-art EDM capabilities allow for precision machining of complex geometries
                 and hard materials with exceptional accuracy.
               </p>
@@ -148,8 +148,8 @@ export default function ServicesPage() {
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4 animate-slide-up">Industries We Serve</h2>
-              <p className="text-gray-600 animate-slide-up delay-200">
+              <h2 className="text-3xl font-bold mb-4 animate-slide-up text-gray-800">Industries We Serve</h2>
+              <p className="text-gray-700 animate-slide-up delay-200">
                 Our precision machining and engineering services support critical applications
                 across multiple industries.
               </p>
@@ -172,11 +172,11 @@ export default function ServicesPage() {
               ].map((industry, idx) => (
                 <div 
                   key={idx} 
-                  className="bg-white rounded-lg p-4 text-center shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 animate-fade-in"
+                  className="bg-white rounded-lg p-4 text-center shadow-md border border-gray-200 hover:shadow-lg transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${idx * 50}ms` }}
                 >
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors duration-300">
-                    <span className="text-primary font-bold">{industry.charAt(0)}</span>
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-200 transition-colors duration-300">
+                    <span className="text-blue-700 font-bold">{industry.charAt(0)}</span>
                   </div>
                   <p className="font-medium text-gray-800">{industry}</p>
                 </div>
@@ -186,7 +186,7 @@ export default function ServicesPage() {
         </section>
         
         {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-r from-primary to-blue-700 text-white">
+        <section className="py-16 bg-gradient-to-r from-blue-700 to-blue-900 text-white">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4 animate-slide-up">Ready to Start Your Project?</h2>
@@ -194,7 +194,7 @@ export default function ServicesPage() {
                 Contact our team today to discuss your requirements and get a customized quote
                 for your precision machining needs.
               </p>
-              <Link href="/contact" className="btn bg-white text-primary hover:bg-gray-100 animate-fade-in">
+              <Link href="/contact" className="btn bg-white text-blue-700 hover:bg-gray-100 animate-fade-in">
                 Contact Us Today
               </Link>
             </div>
@@ -202,7 +202,6 @@ export default function ServicesPage() {
         </section>
       </main>
       
-      <Footer />
     </div>
   );
 }
