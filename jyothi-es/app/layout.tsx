@@ -54,26 +54,25 @@ export default function RootLayout({
 
           <main className="flex-grow relative z-10">{children}</main>
 
-          <footer className="bg-white text-gray-800">
+          <footer className="bg-gradient-to-r from-blue-500 to-blue-700 text-white">
             {/* Main Footer */}
-            <div className="container mx-auto px-4 py-12">
+            <div className="container mx-auto px-6 py-12">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {/* Company Info */}
                 <div className="transition-transform transform hover:scale-105 duration-300">
                   <div className="mb-4">
-                    <span className="text-gray-900 font-extrabold text-2xl">
-                      JYOTHI-ES
-                    </span>
+                    <span className="text-white font-extrabold text-2xl">JYOTHI-ES</span>
                   </div>
-                  <p className="mb-4 text-gray-600">
-                    Precision engineering and machining services with
-                    exceptional quality and accuracy since 1995.
+                  <p className="mb-4 text-blue-100">
+                    Precision engineering and machining services with exceptional quality
+                    and accuracy since 1995.
                   </p>
                   <div className="flex space-x-4">
+                    {/* Social Media Links */}
                     <a
                       href="https://facebook.com"
                       aria-label="Facebook"
-                      className="text-gray-600 hover:text-gray-900 transition-colors"
+                      className="text-blue-200 hover:text-white transition-colors"
                     >
                       <svg
                         className="w-5 h-5"
@@ -91,7 +90,7 @@ export default function RootLayout({
                     <a
                       href="https://twitter.com"
                       aria-label="Twitter"
-                      className="text-gray-600 hover:text-gray-900 transition-colors"
+                      className="text-blue-200 hover:text-white transition-colors"
                     >
                       <svg
                         className="w-5 h-5"
@@ -105,7 +104,7 @@ export default function RootLayout({
                     <a
                       href="https://linkedin.com"
                       aria-label="LinkedIn"
-                      className="text-gray-600 hover:text-gray-900 transition-colors"
+                      className="text-blue-200 hover:text-white transition-colors"
                     >
                       <svg
                         className="w-5 h-5"
@@ -119,7 +118,7 @@ export default function RootLayout({
                     <a
                       href="https://instagram.com"
                       aria-label="Instagram"
-                      className="text-gray-600 hover:text-gray-900 transition-colors"
+                      className="text-blue-200 hover:text-white transition-colors"
                     >
                       <svg
                         className="w-5 h-5"
@@ -139,12 +138,12 @@ export default function RootLayout({
 
                 {/* Services Links */}
                 <div className="transition-transform transform hover:scale-105 duration-300">
-                  <h3 className="text-gray-900 font-bold mb-4">Our Services</h3>
+                  <h3 className="text-white font-bold mb-4">Our Services</h3>
                   <ul className="space-y-2">
                     <li>
                       <Link
                         href="/services/edm"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         EDM Services
                       </Link>
@@ -152,7 +151,7 @@ export default function RootLayout({
                     <li>
                       <Link
                         href="/services/cnc"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         CNC Machining
                       </Link>
@@ -160,7 +159,7 @@ export default function RootLayout({
                     <li>
                       <Link
                         href="/services/tool-manufacturing"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         Tool & Die Manufacturing
                       </Link>
@@ -168,7 +167,7 @@ export default function RootLayout({
                     <li>
                       <Link
                         href="/services/precision-grinding"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         Precision Grinding
                       </Link>
@@ -176,7 +175,7 @@ export default function RootLayout({
                     <li>
                       <Link
                         href="/services"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         View All Services
                       </Link>
@@ -186,12 +185,12 @@ export default function RootLayout({
 
                 {/* Quick Links */}
                 <div className="transition-transform transform hover:scale-105 duration-300">
-                  <h3 className="text-gray-900 font-bold mb-4">Quick Links</h3>
+                  <h3 className="text-white font-bold mb-4">Quick Links</h3>
                   <ul className="space-y-2">
                     <li>
                       <Link
                         href="/about"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         About Us
                       </Link>
@@ -199,7 +198,7 @@ export default function RootLayout({
                     <li>
                       <Link
                         href="/projects"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         Projects
                       </Link>
@@ -207,7 +206,7 @@ export default function RootLayout({
                     <li>
                       <Link
                         href="/faq"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         FAQ
                       </Link>
@@ -215,7 +214,7 @@ export default function RootLayout({
                     <li>
                       <Link
                         href="/careers"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         Careers
                       </Link>
@@ -223,7 +222,7 @@ export default function RootLayout({
                     <li>
                       <Link
                         href="/privacy-policy"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         Privacy Policy
                       </Link>
@@ -233,11 +232,11 @@ export default function RootLayout({
 
                 {/* Contact Info */}
                 <div className="transition-transform transform hover:scale-105 duration-300">
-                  <h3 className="text-gray-900 font-bold mb-4">Contact Us</h3>
+                  <h3 className="text-white font-bold mb-4">Contact Us</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <svg
-                        className="w-5 h-5 text-gray-600 mr-3 mt-1 flex-shrink-0"
+                        className="w-5 h-5 text-blue-200 mr-3 mt-1 flex-shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -255,14 +254,14 @@ export default function RootLayout({
                           d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                         />
                       </svg>
-                      <span className="text-gray-600">
+                      <span className="text-blue-100">
                         123 Industrial Park, <br />
                         Bangalore, Karnataka, 560100
                       </span>
                     </li>
                     <li className="flex items-center">
                       <svg
-                        className="w-5 h-5 text-gray-600 mr-3 flex-shrink-0"
+                        className="w-5 h-5 text-blue-200 mr-3 flex-shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -274,11 +273,11 @@ export default function RootLayout({
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
-                      <span className="text-gray-600">+91 98765 43210</span>
+                      <span className="text-blue-100">+91 98765 43210</span>
                     </li>
                     <li className="flex items-center">
                       <svg
-                        className="w-5 h-5 text-gray-600 mr-3 flex-shrink-0"
+                        className="w-5 h-5 text-blue-200 mr-3 flex-shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -292,14 +291,14 @@ export default function RootLayout({
                       </svg>
                       <a
                         href="mailto:info@jyothi-es.com"
-                        className="text-gray-600 hover:text-gray-900 transition-colors"
+                        className="text-blue-200 hover:text-white transition-colors"
                       >
                         info@jyothi-es.com
                       </a>
                     </li>
                     <li className="flex items-center">
                       <svg
-                        className="w-5 h-5 text-gray-600 mr-3 flex-shrink-0"
+                        className="w-5 h-5 text-blue-200 mr-3 flex-shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -311,7 +310,7 @@ export default function RootLayout({
                           d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                         />
                       </svg>
-                      <span className="text-gray-600">Mon-Fri: 9AM - 6PM</span>
+                      <span className="text-blue-100">Mon-Fri: 9AM - 6PM</span>
                     </li>
                   </ul>
                 </div>
@@ -319,25 +318,24 @@ export default function RootLayout({
             </div>
 
             {/* Newsletter Subscription */}
-            <div className="border-t border-gray-300">
-              <div className="container mx-auto px-4 py-8">
+            <div className="border-t border-blue-400">
+              <div className="container mx-auto px-6 py-8">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                   <div className="mb-4 md:mb-0">
-                    <h3 className="text-gray-900 text-lg font-bold mb-2">
+                    <h3 className="text-white text-lg font-bold mb-2">
                       Subscribe to Our Newsletter
                     </h3>
-                    <p className="text-gray-600">
-                      Stay updated with our latest services and industry
-                      insights
+                    <p className="text-blue-100">
+                      Stay updated with our latest services and industry insights
                     </p>
                   </div>
                   <div className="flex max-w-md">
                     <input
                       type="email"
                       placeholder="Your email address"
-                      className="flex-grow px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-gray-400 focus:border-gray-400"
+                      className="flex-grow px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-blue-300"
                     />
-                    <button className="bg-gray-900 hover:bg-gray-700 text-white font-medium px-4 py-2 rounded-r-lg transition-colors">
+                    <button className="bg-white text-blue-700 hover:bg-blue-100 font-medium px-4 py-2 rounded-r-lg transition-colors">
                       Subscribe
                     </button>
                   </div>
