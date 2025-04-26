@@ -10,12 +10,10 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* <StatSection/> */}
-      <ServiceSection />
-      {/* <SolutionSection/> */}
       <div className="bg-white">
         <About id="about-section" className="" />
       </div>
+      <ServiceSection />
       <Contact />
     </>
   );
