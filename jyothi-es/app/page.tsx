@@ -13,6 +13,7 @@ export default function Home() {
       <div className="bg-white">
         <About id="about-section" className="" />
       </div>
+      <StatSection />
       <ServiceSection />
       <Contact />
     </>
